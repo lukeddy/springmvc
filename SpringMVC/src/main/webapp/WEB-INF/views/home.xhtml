@@ -9,7 +9,13 @@
     </ui:define>
 
 	<ui:define name="content">
-		<h1>New content here</h1>
-		<p>Lorem ipsum CONTENT</p>
+		<h1>New content here : home.xhtml</h1>
+		<p>CONTENT: The time on the server is ${serverTime}</p>
+		<ul>
+			<ui:repeat value="#{carManager.carList}" var="car">
+				<li><h:outputText value="#{car}" />AAA</li>
+				<br />
+			</ui:repeat>
+		</ul>
 	</ui:define>
 </ui:composition>
