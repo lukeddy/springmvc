@@ -25,7 +25,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -34,10 +34,17 @@ public class HomeController {
 				DateFormat.LONG, locale);
 
 		String formattedDate = dateFormat.format(date);
-		CarManager carList = new CarManager();
+		CarManager carManager = new CarManager();
+		logger.info(carManager.getCarList().toString());
 
+		/*
+		 * ModelAndView modelAndView = new ModelAndView("home");
+		 * modelAndView.addObject("carList", carManager.getCarList());
+		 * 
+		 * return modelAndView;
+		 */
 		model.addAttribute("serverTime", formattedDate);
-		model.addAttribute("carList", carList);
+		model.addAttribute("carList", carManager.getCarList());
 
 		return "home";
 	}

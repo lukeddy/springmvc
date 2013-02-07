@@ -12,8 +12,8 @@
 		<h1>New content here : home.xhtml</h1>
 		<p>CONTENT: The time on the server is ${serverTime}</p>
 		<ul>
-			<ui:repeat value="#{carManager.carList}" var="car">
-				<li><h:outputText value="#{car}" />AAA</li>
+			<ui:repeat value="#{carList}" var="car">
+				<li>#{car.brand.name} #{car.model}: $#{car.price}</li>
 				<br />
 			</ui:repeat>
 		</ul>
